@@ -1,6 +1,7 @@
 import { levels } from "./levels.js";
 import { drawMaze, resizeCanvas } from "./rendererCanvas.js";
 import { sendMazeResult } from "./api.js";
+import { showMessage, showChoices } from "./conversation.js";
 
 
 /* ======================
@@ -25,8 +26,6 @@ const ctx = canvas.getContext("2d");
 
 const titleEl = document.querySelector("h1");
 const subtitleEl = document.querySelector(".subtitle");
-const choicesList = document.getElementById("choicesList");
-
 const resultScreen = document.getElementById("resultScreen");
 const resultText = document.getElementById("resultText");
 const resultList = document.getElementById("resultList");
@@ -41,28 +40,27 @@ function loadLevel(index) {
   maze = level.maze;
   playerPos = { x: 1, y: 1 };
 
-  // Resize canvas for current level
   resizeCanvas(index);
 
-  // Cute title + subtitle
   titleEl.textContent = `${level.title} 💕`;
   subtitleEl.textContent = level.subtitle || "Choose with your heart 💖";
 
-  // Populate choices
-  choicesList.innerHTML = "";
-  Object.entries(level.exits).forEach(([key, label]) => {
-    const li = document.createElement("li");
-    li.textContent = label;
-    li.dataset.exit = key;
-    li.className =
-      "bg-pink-100/70 text-pink-900 rounded-xl px-3 py-2 text-sm " +
-      "shadow hover:bg-pink-200 transition";
-    choicesList.appendChild(li);
-  });
-
   fade = 1;
   fading = true;
+
+  // Conversation handles choices
+  showMessage(level.subtitle || "Choose with your heart 💖", "her");
+
+  showChoices(
+    Object.values(level.exits),
+    choiceLabel => {
+      const exitKey = Object.keys(level.exits)
+        .find(k => level.exits[k] === choiceLabel);
+      handleExit(exitKey);
+    }
+  );
 }
+
 
 /* ======================
    Exit Handling
@@ -77,8 +75,6 @@ function handleExit(exitKey) {
     choice
   });
 
-  animateChoice(exitKey);
-
   setTimeout(() => {
     currentLevel++;
 
@@ -89,6 +85,7 @@ function handleExit(exitKey) {
     }
   }, 600);
 }
+
 
 /* ======================
    Choice Animation
@@ -179,7 +176,8 @@ function movePlayer(dx, dy) {
 
   const cell = maze[ny][nx];
   if (typeof cell === "string" && cell.startsWith("E")) {
-    handleExit(cell);
+    // just stop movement on exits
+    return;
   }
 }
 
@@ -277,5 +275,3 @@ export function startGame(name) {
   loadLevel(currentLevel);
   gameLoop();
 }
-
-

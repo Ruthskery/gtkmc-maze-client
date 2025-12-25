@@ -13,7 +13,10 @@
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Input Name -->
-  <link rel="stylesheet" href="components/inputName/inputName.css">
+  <link rel="stylesheet" href="css/inputName.css">
+
+  <!-- Conversation Box -->
+  <link rel="stylesheet" href="css/conversationBox.css">
 
 </head>
 
@@ -151,6 +154,35 @@
     </div>
   </div>
 
-  <script type="module" src="components/inputName/inputName.js"></script>
+  <!-- Conversation Box -->
+  <div id="conversationBox" class="conversation-overlay">
+    <div id="conversationCard" class="conversation-card">
+
+      <div id="conversationRow" class="conversation-row her">
+
+        <!-- COLUMN 1 -->
+        <div class="conversation-col avatar-col">
+          <img id="conversationAvatar"
+              class="conversation-avatar"
+              alt="avatar">
+        </div>
+
+        <!-- COLUMN 2 -->
+        <div class="conversation-col message-col">
+          <p id="speakerLabel" class="conversation-speaker"></p>
+          <p id="messageText" class="conversation-text"></p>
+          <p id="tapHint" class="tap-hint hidden">tap to continue ▸</p>
+        </div>
+
+      </div>
+
+      <div id="conversationOptions" class="conversation-options"></div>
+    </div>
+  </div>
+
+
+  <script type="module" src="js/inputName.js"></script>
+  <script type="module" src="js/conversation.js"></script>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
-import { validatePlayerName } from "../../js/player.js";
-import { startGame } from "../../js/main.js";
+import { validatePlayerName } from "./player.js";
+import { startGame } from "./main.js";
 
 const screen = document.getElementById("inputNameScreen");
 const input = document.getElementById("inputNameInput");
