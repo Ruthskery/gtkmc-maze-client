@@ -1,10 +1,8 @@
 import { levels } from "./levels.js";
 import { drawMaze, resizeCanvas } from "./rendererCanvas.js";
 import { sendMazeResult } from "./api.js";
-import { showMessage, isDialogueActive } from "./conversation.js";
+import { showMessage, isDialogueActive, waitForConversationAdvance } from "./conversation.js";
 import { playDing } from "./audio.js";
-
-
 
 /* ======================
    State
@@ -84,45 +82,8 @@ function delay(ms) {
 async function playDialogue(lines) {
   for (const line of lines) {
     showMessage(line.text, line.who);
-    await waitForTap(); // ⬅️ YOU control the pace
+    await waitForConversationAdvance();
   }
-}
-
-/* ======================
-   Next Tap
-====================== */
-
-function waitForTap() {
-  return new Promise(resolve => {
-    const card = document.getElementById("conversationCard");
-
-    const done = () => {
-      card.removeEventListener("click", onClick);
-      card.removeEventListener("touchend", onTouch);
-      document.removeEventListener("keydown", onKey);
-      resolve();
-    };
-
-    const onClick = () => {
-      done();
-    };
-
-    const onTouch = e => {
-      e.preventDefault(); // ⬅️ important for mobile
-      done();
-    };
-
-    const onKey = e => {
-      if (e.code === "Space") {
-        e.preventDefault();
-        done();
-      }
-    };
-
-    card.addEventListener("click", onClick);
-    card.addEventListener("touchend", onTouch, { passive: false });
-    document.addEventListener("keydown", onKey);
-  });
 }
 
 /* ======================
@@ -140,12 +101,12 @@ async function handleExit(exitKey) {
   if (dialogue) {
     await playDialogue(dialogue);
   } else {
-    // fallback
-    showMessage(level.exits[exitKey], "me");
-    await waitForTap();
-    showMessage("Interesting choice 💕", "her");
-    await waitForTap();
-  }
+  showMessage(level.exits[exitKey], "me");
+  await waitForConversationAdvance();
+
+  showMessage("Interesting choice 💕", "her");
+  await waitForConversationAdvance();
+}
 
   choiceHistory.push({
     category: level.title,

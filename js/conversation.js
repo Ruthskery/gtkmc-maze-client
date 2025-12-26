@@ -102,8 +102,14 @@ export function showChoices(choices, callback) {
 function advanceDialogue() {
   tapHint.classList.add("hidden");
   waitingForTap = false;
-  hideConversation(); // 👈 fades OUT
+  hideConversation();
+
+  if (advanceResolver) {
+    advanceResolver();
+    advanceResolver = null;
+  }
 }
+
 
 function globalAdvanceHandler(e) {
   if (!waitingForTap || waitingForChoice) return;
@@ -131,3 +137,11 @@ document.addEventListener("keydown", e => {
   e.preventDefault();
   advanceDialogue();
 });
+
+let advanceResolver = null;
+
+export function waitForConversationAdvance() {
+  return new Promise(resolve => {
+    advanceResolver = resolve;
+  });
+}
