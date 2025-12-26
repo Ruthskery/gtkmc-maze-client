@@ -11,25 +11,19 @@ export const levels = [
       E1: [
         // { who: "me", text: "Hmm… what should we eat?" },
         { who: "her", text: "McDo 🍟" },
-        { who: "her", text: "Classic choice 😌" },
-        { who: "me", text: "Too basic?" },
-        { who: "her", text: "Nope 💕 it’s comforting." }
+        { who: "me", text: "Let’s eat there sometimes 😌" },
       ],
 
       E2: [
         // { who: "me", text: "I’m craving something…" },
         { who: "her", text: "Jollibee 🐝" },
-        { who: "her", text: "Uy comfort food 💖" },
-        { who: "me", text: "You like it too?" },
-        { who: "her", text: "Always 😌" }
+        { who: "me", text: "Uy comfort food 💖" },
       ],
 
       E3: [
         // { who: "me", text: "Let’s try something different." },
         { who: "her", text: "Chowking 😎" },
-        { who: "her", text: "Bold taste!" },
-        { who: "me", text: "That’s good… right?" },
-        { who: "her", text: "Very ✨" }
+        { who: "me", text: "Nice choice, I love Chinese food too 😉" },
       ]
     },
     logos: {
@@ -55,7 +49,7 @@ export const levels = [
 
   {
     title: "Coffee Place",
-    subtitle: "Pick your caffeine",
+    subtitle: "Let’s get some drinks ✨🧋",
     exits: {
       E1: "Starbucks",
       E2: "Chagee",
@@ -65,25 +59,19 @@ export const levels = [
       E1: [
         // { who: "me", text: "Coffee time?" },
         { who: "her", text: "Starbucks ☕" },
-        { who: "her", text: "Reliable choice 💕" },
-        { who: "me", text: "You judge me?" },
-        { who: "her", text: "Never 😌" }
+        { who: "me", text: "A comfy classic 💕" },
       ],
 
       E2: [
         // { who: "me", text: "Let’s try something new." },
         { who: "her", text: "Chagee 🍃" },
-        { who: "her", text: "Ooo classy 💖" },
-        { who: "me", text: "You approve?" },
-        { who: "her", text: "Definitely ✨" }
+        { who: "me", text: "Ooo fancy 🍃✨" },
       ],
 
       E3: [
         // { who: "me", text: "Sweet drinks today." },
         { who: "her", text: "Coco 🧋" },
-        { who: "her", text: "Fun choice 😄" },
-        { who: "me", text: "Too childish?" },
-        { who: "her", text: "Cute actually 💕" }
+        { who: "me", text: "Sweet and fun 🧋💕" },
       ]
     },
     logos: {
@@ -110,7 +98,7 @@ export const levels = [
 
   {
     title: "Go To Place",
-    subtitle: "Where to go?",
+    subtitle: "Where do you feel like going?",
     exits: {
       E1: "SM",
       E2: "Ugbo",
@@ -120,25 +108,19 @@ export const levels = [
       E1: [
         // { who: "me", text: "Where do you want to go?" },
         { who: "her", text: "SM 🛍️" },
-        { who: "her", text: "Shopping date? 😌" },
-        { who: "me", text: "Window shopping counts, right?" },
-        { who: "her", text: "As long as we’re together 💕" }
+        { who: "me", text: "Shopping date? 😌" },
       ],
 
       E2: [
         // { who: "me", text: "I’m thinking something chill." },
         { who: "her", text: "Ugbo 🍢" },
-        { who: "her", text: "Street food trip? 😋" },
-        { who: "me", text: "You down for it?" },
-        { who: "her", text: "Always 💖 I like simple dates." }
+        { who: "me", text: "Street food trip? 😋" },
       ],
 
       E3: [
         // { who: "me", text: "What about somewhere different?" },
         { who: "her", text: "Intramuros 🏛️" },
-        { who: "her", text: "That’s romantic 😳" },
-        { who: "me", text: "History walk with you?" },
-        { who: "her", text: "I’d love that ✨" }
+        { who: "me", text: "That’s romantic 😳" },
       ]
     },
     logos: {
