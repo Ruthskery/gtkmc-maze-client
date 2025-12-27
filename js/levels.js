@@ -49,7 +49,7 @@ export const levels = [
 
   {
     title: "Drinks",
-    subtitle: "Let’s get some drinks ✨🧋",
+    subtitle: "Let’s get some drinks ✨",
     exits: {
       E1: "Starbucks",
       E2: "Chagee",
@@ -65,13 +65,13 @@ export const levels = [
       E2: [
         // { who: "me", text: "Let’s try something new." },
         { who: "her", text: "Chagee 🍃" },
-        { who: "me", text: "Ooo fancy 🍃✨" },
+        { who: "me", text: "Ooo fancy ✨" },
       ],
 
       E3: [
         // { who: "me", text: "Sweet drinks today." },
-        { who: "her", text: "Coco 🧋" },
-        { who: "me", text: "Sweet and fun 🧋💕" },
+        { who: "her", text: "Coco ☕" },
+        { who: "me", text: "Sweet and fun 😁" },
       ]
     },
     logos: {
@@ -81,13 +81,13 @@ export const levels = [
     },
    maze: [
   [1,1,1,1,1,1,1,1,1,1,1,1,1],
-  [1,'S',0,0,1,0,0,0,0,0,0,'E2',1],
+  [1,'S',0,0,1,0,0,0,0,0,0,0,1],
   [1,1,1,0,1,0,1,1,1,1,0,1,1],
   [1,0,0,0,0,0,0,0,0,1,0,0,1],
-  [1,0,1,1,1,1,1,1,0,1,1,1,1],
+  [1,0,1,1,1,0,1,1,0,1,1,1,1],
   [1,0,1,0,0,0,0,1,0,0,0,'E3',1],
   [1,0,1,0,1,1,0,1,1,1,1,1,1],
-  [1,0,0,0,1,0,0,0,0,0,0,0,1],
+  [1,0,0,0,1,0,0,0,0,0,0,'E2',1],
   [1,1,1,0,1,0,1,1,1,1,1,1,1],
   [1,0,0,0,0,0,0,0,0,0,0,0,1],
   [1,'E1',1,1,1,1,0,1,1,1,1,0,1],
@@ -98,7 +98,7 @@ export const levels = [
 
   {
     title: "Place",
-    subtitle: "Where would you like to go?",
+    subtitle: "Where would you like to go? 🗺️",
     exits: {
       E1: "Mall",
       E2: "Beach",
@@ -113,7 +113,7 @@ export const levels = [
 
       E2: [
         // { who: "me", text: "I’m thinking something chill." },
-        { who: "her", text: "Beach 🍢" },
+        { who: "her", text: "Beach 🌊" },
         { who: "me", text: "Beach sounds relaxing 🐚" },
       ],
 
@@ -126,7 +126,7 @@ export const levels = [
     logos: {
       E1: "assets/images/sm.png",
       E2: "assets/images/beach.jpg",
-      E3: "assets/images/intramuros.png"
+      E3: "assets/images/park.jpg"
     },
    maze: [
     [1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -141,6 +141,51 @@ export const levels = [
     [1,0,0,0,0,0,0,0,0,0,0,'E3',1],
     [1,'E2',1,1,1,1,0,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1,1,1,1,1,1]
+    ]
+  },
+
+   {
+    title: "Time",
+    subtitle: "Which time do you prefer to go out?",
+    exits: {
+      E1: "Morning",
+      E2: "Afternoon",
+      E3: "Night"
+    },
+    dialogue: {
+      E1: [
+        { who: "her", text: "Morning ☀️" },
+        { who: "me", text: "Mornings can be really nice 😊" },
+      ],
+
+      E2: [
+        { who: "her", text: "Afternoon 🌤️" },
+        { who: "me", text: "That’s a good time to go out 😊" },
+      ],
+
+      E3: [
+        { who: "her", text: "Night 🌙" },
+        { who: "me", text: "Night sounds chill 😊" },
+      ]
+    },
+    logos: {
+      E1: "assets/images/Day.jpg",
+      E2: "assets/images/Afternoon.jpg",
+      E3: "assets/images/Night.jpg"
+    },
+   maze: [
+      [1,1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,'S',0,0,0,0,0,0,0,0,0,0,1],
+      [1,1,1,0,1,1,1,1,1,1,0,1,1],
+      [1,0,0,0,0,0,0,0,0,1,0,1,1],
+      [1,0,1,1,0,1,1,1,0,1,0,1,1],
+      [1,0,1,1,0,0,0,0,0,0,0,'E1',1],
+      [1,0,1,1,0,1,1,1,1,1,0,1,1],
+      [1,0,0,0,0,0,0,0,0,0,0,0,1],
+      [1,0,1,0,0,1,1,1,1,1,1,0,1],
+      [1,0,1,1,1,1,0,0,0,0,0,0,1],
+      [1,0,0,0,'E2',1,0,1,1,1,'E3',1,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1,1]
     ]
   }
 ];
