@@ -4,10 +4,19 @@ const API_BASE =
     ? "http://localhost:3000"
     : "https://gtkmc-maze-server.onrender.com";
 
-export function sendMazeResult(data) {
-  fetch(`${API_BASE}/api/maze-result`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
+export async function sendMazeResult(data) {
+  try {
+    const res = await fetch(`${API_BASE}/api/maze-result`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (!res.ok) {
+      console.error("Failed to send maze result", res.status);
+    }
+  } catch (err) {
+    console.error("Network error:", err);
+  }
 }
+
